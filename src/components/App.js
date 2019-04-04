@@ -12,7 +12,7 @@ class App extends Component {
         text: 'Sprzątanie auta',
         date: '2019-04-12',
         important: true,
-        active: true,
+        active: false,
         finishDate: null
       },
       {
