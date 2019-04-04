@@ -9,7 +9,7 @@ const Task = (props) => {
         {id}. 
         <strong> {text} </strong>
         do {date}
-        <button onClick={ () => props.change(id) }>Zostało zrobione </button>
+        <button onClick={() => props.change(id)}>Zrobione</button>
         <button onClick={() => props.delete(id)}>X</button>
       </p>
     </div>
