@@ -1,12 +1,25 @@
 import React, {Component} from 'react';
 
 class AddTask extends Component {
+
+  minDate = new Date().toISOString().slice(0, 10);
+
   state = { 
     text: '',
     checked: false,
-    date: '2019-04-04'
+    date: this.minDate
    }
+
+   handleDate = (e) => {
+     this.setState({
+       date: e.target.value
+     })
+   }
+
   render() { 
+    let maxDate = this.minDate.slice(0,4) * 1 + 1;
+    maxDate = maxDate + "-12-31"
+    console.log(maxDate)
     return ( 
       <div>
         <input 
@@ -21,7 +34,8 @@ class AddTask extends Component {
         <br/>
         <label htmlFor="date">Do kiedy zrobić</label>
         <br />
-        <input type="date" value={this.state.date}  min="2019-04-04" max="2021-04-04"/>
+        <input type="date" value={this.state.date}  min={this.minDate} max={maxDate}
+        onChange={this.handleDate}/>
         <button>Dodaj</button>
       </div>
      );
