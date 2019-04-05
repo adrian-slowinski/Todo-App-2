@@ -23,9 +23,18 @@ class AddTask extends Component {
    }
 
    handleClick = (e) => {
-     this.setState({
-
-     })
+     console.log("Dodaj")
+     const {text, checked, date} = this.state;
+     if(text.length > 2) {
+       const add = this.props.add(text, checked, date);
+       if (add) {
+         this.setState({
+           text: '',
+           checked: false,
+           date: this.minDate
+         })
+       }
+     }
    }
 
    handleDate = (e) => {
