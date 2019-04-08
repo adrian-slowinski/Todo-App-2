@@ -8,6 +8,31 @@ const TaskList = (props) => {
   console.log(active)
   console.log(done)
 
+  // done.sort((a, b) => b.finishDate - a.finishDate)
+
+  if (done.length >= 2) {
+    done.sort((a, b) => {
+      if (a.finishDate < b.finishDate){
+        return 1
+      } else if (a.finishDate > b.finishDate){  
+        return -1
+      } else {
+        return 0
+      }
+    })
+  }
+
+  if (active.length >= 2) {
+    active.sort((a, b) => {
+      a = a.text.toLowerCase();
+      b = b.text.toLowerCase();
+
+      if(a < b) return -1;
+      if(a > b) return 1;
+      return 0
+    })
+  }
+
   const activeTasks = active.map((task) => {
     return (
       <Task key={task.id} task={task} 

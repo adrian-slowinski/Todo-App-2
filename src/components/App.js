@@ -72,7 +72,7 @@ class App extends Component {
     })
   }
 
-  addTask = (text, date, important) => { 
+  addTask = (text, important, date) => {
     const task = {
       id: this.counter,
       text: text,
@@ -83,6 +83,7 @@ class App extends Component {
     }
     this.counter++
     console.log(task, this.counter);
+    console.log("dodawanie taska - App.js");
 
     this.setState(prevState => ({
       tasks: [...prevState.tasks, task]

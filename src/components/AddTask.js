@@ -31,7 +31,7 @@ class AddTask extends Component {
          this.setState({
            text: '',
            checked: false,
-           date: this.minDate
+           date: date
          })
        }
      }
